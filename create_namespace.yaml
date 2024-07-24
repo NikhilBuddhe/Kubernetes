@@ -6,4 +6,4 @@ metadata:
 
 ---
 
-# kubectl apply -f create_namespace.yaml
+## kubectl apply -f create_namespace.yaml
