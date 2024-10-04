@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Deployment
+metadata: 
+  name: nginx_Deployment_1
+  namespace: my_first_namespace
+  labels: 
+    app: first_nginx_app
+
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: first_nginx_app
+  template:
+    metadata:
+      labels:
+        app: first_nginx_app
+
+    spec:
+      containers:
+        - name: ngix_app
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+            
+    
+  
+

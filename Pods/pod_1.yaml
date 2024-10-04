@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadate: 
+  name: busybox
+  namespace: my_first_namespace
+
+spec:
+  containers:
+    - name: first_container_busybox
+      image: busybox
+      command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+    
+    restartPolicy: OnFailure
+
+    
