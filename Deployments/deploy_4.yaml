@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: niginx-webserver
+  labels:
+    app: nginx-server
+spec:
+    replicas: 3
+    selector: 
+      matchlables:
+        app: nginx-server
+    template:
+      metadata:
+        labels:
+          app: nginx
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpression:
+                - key:  node-type
+                  operator: In
+                  values:
+                    - nginx-node
+
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpression:
+                  - key: app
+                    operator: In
+                    values:
+                      - nginx
+                topologyKey: "kubernetes.io/hostname"
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+            
+
