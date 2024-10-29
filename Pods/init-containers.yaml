@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod 
 metadata:
-  name: Purple
+  name: purple
 spec: 
   containers:
     - command:
