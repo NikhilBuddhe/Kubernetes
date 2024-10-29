@@ -1,0 +1,10 @@
+# pods commands
+
+1. kubectl apply -f <file name>
+2. kubectl describe pod <pod name/pod id>
+3. kubectl get pods
+4. kubectl inspect pod <pod id/pod name>
+
+# node commands
+
+1. kubectl get nodes
